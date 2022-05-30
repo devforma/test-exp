@@ -159,4 +159,4 @@ Scenario 3：拥堵定价（未完成）
 
 DOCKER
 
-pip3 install osm2gmns requests pandas numpy Shapely networkx
+pip3 install osm2gmns requests

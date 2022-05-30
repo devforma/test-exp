@@ -6,16 +6,14 @@ import argparse
 
 parser = argparse.ArgumentParser(description="OpenEngine Args")
 parser.add_argument(
-    "--city",
+    "--output_path",
     type=str,
-    default="nanchang",
-    choices=["nanchang"],
-    help="the name of the city that serves as simulation base.",
+    default="./data/log/",
+    help="the output dir of the experiment.",
 )
 args = parser.parse_args()
 
 def main():
-    city = args.city
     # roadnet_file = './data/roadnet_{}.txt'.format(city)
     # flow_file = './data/flow_{}.txt'.format(city)
     # cfg_file = './data/cfg/{}.cfg'.format(city)
@@ -23,8 +21,9 @@ def main():
     roadnet_file = './data/OpenEngine_roadnet.txt'
     flow_file = './data/CBEngine_0_flow.txt'
     cfg_file = './data/cfg/0_flow.cfg'
-    log_path = './data/log/'
     metric_path = './data/metric/'
+    # log_path = './data/log/'
+    log_path = args.output_path
     wrapper = Wrapper(roadnet_file, flow_file, cfg_file)
     wrapper.run_simulation(log_path, metric_path)
     pass

@@ -16,9 +16,13 @@ args = parser.parse_args()
 
 def main():
     city = args.city
-    roadnet_file = './data/roadnet_{}.txt'.format(city)
-    flow_file = './data/flow_{}.txt'.format(city)
-    cfg_file = './data/cfg/{}.cfg'.format(city)
+    # roadnet_file = './data/roadnet_{}.txt'.format(city)
+    # flow_file = './data/flow_{}.txt'.format(city)
+    # cfg_file = './data/cfg/{}.cfg'.format(city)
+    
+    roadnet_file = './data/OpenEngine_roadnet.txt'
+    flow_file = './data/CBEngine_0_flow.txt'
+    cfg_file = './data/cfg/0_flow.cfg'
     log_path = './data/log/'
     metric_path = './data/metric/'
     wrapper = Wrapper(roadnet_file, flow_file, cfg_file)

@@ -19,7 +19,8 @@ class Traffic_generator:
         self.main_folder = main_folder
         self.data_folder = output_folder
         #  self.roadnet_path = self.data_folder + self.city + ".txt"
-        self.roadnet_path = main_folder + "roadnet_dict_" + self.city + ".pkl"
+        # self.roadnet_path = main_folder + "roadnet_dict_" + self.city + ".pkl"
+        self.roadnet_path = main_folder + "roadnet_dict.pkl"
 
         self.delete_opposite = delete_opposite
         self.traffic_duration = traffic_duration
@@ -77,10 +78,11 @@ class Traffic_generator:
         self.fl.output_sumo(output_path=sumo_data_path)
 
         # step-2 write config file
-        road_file_add = "road_file_addr : " + self.roadnet_path
+        # road_file_add = "road_file_addr : " + self.roadnet_path
+        road_file_add = "road_file_addr : " + self.data_folder + "OpenEngine_roadnet.txt"
         default_content0 = ['start_time_epoch = 0', 'max_time_epoch = 1200', road_file_add ]
         default_content1 = ['report_log_mode : normal', 'report_log_rate = 10', 'warning_stop_time_log = 100']
-        flow_cfg = "vehicle_file_addr : " + self.data_folder + str(run+1) + '_flow.txt'
+        flow_cfg = "vehicle_file_addr : " + self.data_folder + 'CBEngine_' + str(run+1) + '_flow.txt'
         log_folder = self.main_folder + self.city + "/log/"
         log_cfg = "report_log_addr : " + log_folder + str(run+1) +'/'
         

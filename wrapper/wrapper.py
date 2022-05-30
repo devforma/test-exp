@@ -140,7 +140,8 @@ class Wrapper(object):
             avg = 0
             for speed in speed_dict.values():
                 avg += speed
-            avg /= len(speed_dict)
+            if(len(speed_dict) > 0):
+                avg /= len(speed_dict)
             avg_speed.append(avg)
             # compute travel time
             travel_time.append(engine.get_average_travel_time())
@@ -151,7 +152,7 @@ class Wrapper(object):
         print('Runtime: ', end_time - start_time)
 
         info = {"vehicle_num": vehicle_num, "avg_speed": avg_speed, "travel_time": travel_time}
-        with open(os.path.join(metric_path, "metric_record.json", "wb")) as file:
+        with open(os.path.join(metric_path, "metric_record.json"), "wb") as file:
             json.dump(info, file)
 
     def test_runtime(self):
